@@ -1,0 +1,17 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/mnt/c/Users/tanma/Desktop/asdf/apt-assignment2-group'
+g++ -Wall -Werror -std=c++14 -g -O -c Tile.cpp
+g++ -Wall -Werror -std=c++14 -g -O -c Node.cpp
+ 
+g++ -Wall -Werror -std=c++14 -g -O -c LinkedList.cpp
+g++ -Wall -Werror -std=c++14 -g -O -c Board.cpp
+g++ -Wall -Werror -std=c++14 -g -O -c Game.cpp
+ 
+g++ -Wall -Werror -std=c++14 -g -O -c GameInit.cpp
+g++ -Wall -Werror -std=c++14 -g -O -c Player.cpp
+g++ -Wall -Werror -std=c++14 -g -O -c qwirkle.cpp
+ 
+g++ -Wall -Werror -std=c++14 -g -O -c GameSaver.cpp
+g++ -Wall -Werror -std=c++14 -g -O -o qwirkle Tile.o Node.o LinkedList.o Board.o Game.o GameInit.o Player.o qwirkle.o GameSaver.o
+make: Leaving directory '/mnt/c/Users/tanma/Desktop/asdf/apt-assignment2-group'
+ 

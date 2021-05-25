@@ -79,7 +79,7 @@ private:
     Player *currentPlayer;
     bool terminateGame;
     bool gameOver;
-    int turnNum = 0;
+    int turnNum = 1;
     int tileNum = 0;
 
     Game::Orientation orientation = undirected;

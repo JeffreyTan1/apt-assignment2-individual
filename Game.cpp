@@ -99,7 +99,7 @@ void Game::executeGameplay()
          << endl;
     while (!terminateGame && !gameOver)
     {
-        turnNum++;
+
         string command = "";
         bool correctCommand = false;
         printGameStatus();
@@ -229,7 +229,6 @@ bool Game::playTurn(vector<string> userInput)
                                 }
                                 printGameStatus();
                                 setDirectionFromFirst(locationRow, locationCol);
-                                cout << orientation << endl;
                             }
                             else
                             {
@@ -327,7 +326,7 @@ bool Game::playTurn(vector<string> userInput)
                  << "Game successfully saved" << endl
                  << endl;
         }
-        else if (userInput[INPUT_POS_1] == "END" && userInput[INPUT_POS_2] == "TURN")
+        else if (userInput[INPUT_POS_1] == "PASS")
         {
             if (!bag->isEmpty())
             {
@@ -336,6 +335,7 @@ bool Game::playTurn(vector<string> userInput)
             firstTileRow = -1;
             firstTileCol = -1;
             tileNum = 0;
+            turnNum++;
             orientation = undirected;
             returnVal = true;
         }
@@ -508,7 +508,7 @@ bool Game::playTile(Tile *tile, int row, int col)
     }
     else
     {
-        cout << "Invalid move. Try again: " << endl;
+        cout << "Invalid move. Try again:" << endl;
 
         returnVal = false;
     }

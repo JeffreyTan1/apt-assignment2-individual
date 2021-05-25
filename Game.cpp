@@ -35,12 +35,59 @@ Game::Game(Player *player1, Player *player2, LinkedList *bag, Board *board, Play
     this->currentPlayer = currentPlayer;
     this->terminateGame = false;
     this->gameOver = false;
+    players.push_back(player1);
+    players.push_back(player2);
+    playerCount = 2;
+}
+
+Game::Game(Player *player1, Player *player2, Player *player3, LinkedList *bag, Board *board, Player *currentPlayer)
+{
+    this->player1 = player1;
+    this->player2 = player2;
+    this->player3 = player3;
+    this->bag = bag;
+    this->board = board;
+    this->currentPlayer = currentPlayer;
+    this->terminateGame = false;
+    this->gameOver = false;
+    players.push_back(player1);
+    players.push_back(player2);
+    players.push_back(player3);
+    playerCount = 3;
+}
+
+Game::Game(Player *player1, Player *player2, Player *player3, Player *player4, LinkedList *bag, Board *board, Player *currentPlayer)
+{
+    this->player1 = player1;
+    this->player2 = player2;
+    this->player3 = player3;
+    this->player4 = player4;
+    this->bag = bag;
+    this->board = board;
+    this->currentPlayer = currentPlayer;
+    this->terminateGame = false;
+    this->gameOver = false;
+    players.push_back(player1);
+    players.push_back(player2);
+    players.push_back(player3);
+    players.push_back(player4);
+    playerCount = 4;
 }
 
 Game::~Game()
 {
     delete player1;
     delete player2;
+
+    if (player3 != nullptr)
+    {
+        delete player3;
+    }
+    if (player4 != nullptr)
+    {
+        delete player4;
+    }
+
     delete bag;
     delete board;
 }
@@ -82,6 +129,22 @@ void Game::executeGameplay()
             {
                 gameOver = true;
             }
+
+            if (player3 != nullptr)
+            {
+                if (bag->isEmpty() && player3->getHand()->isEmpty())
+                {
+                    gameOver = true;
+                }
+            }
+
+            if (player4 != nullptr)
+            {
+                if (bag->isEmpty() && player4->getHand()->isEmpty())
+                {
+                    gameOver = true;
+                }
+            }
         }
     }
     if (gameOver == true)
@@ -91,19 +154,27 @@ void Game::executeGameplay()
              << "Game over" << endl;
         cout << "Score for " << player1->getName() << ": " << player1->getPoints() << endl;
         cout << "Score for " << player2->getName() << ": " << player2->getPoints() << endl;
+        if (player3 != nullptr)
+        {
+            cout << "Score for " << player3->getName() << ": " << player3->getPoints() << endl;
+        }
+        if (player4 != nullptr)
+        {
+            cout << "Score for " << player4->getName() << ": " << player4->getPoints() << endl;
+        }
 
-        if (player1->getPoints() > player2->getPoints())
+        int highestScore = 0;
+        Player *winner = nullptr;
+        for (int i = 0; i < playerCount; i++)
         {
-            cout << "Player " << player1->getName() << " won!" << endl;
+            if (players[i]->getPoints() > highestScore)
+            {
+                highestScore = players[i]->getPoints();
+                winner = players[i];
+            }
         }
-        else if (player2->getPoints() > player1->getPoints())
-        {
-            cout << "Player " << player2->getName() << " won!" << endl;
-        }
-        else if (player2->getPoints() == player1->getPoints())
-        {
-            cout << "The game was a draw!" << endl;
-        }
+
+        cout << "Player " << winner->getName() << " won!" << endl;
     }
     cout << endl
          << "Goodbye" << endl;
@@ -115,8 +186,10 @@ bool Game::playTurn(vector<string> userInput)
 
     if (userInput.size() > 0 && userInput.size() < INPUT_SIZE_MAX)
     {
+
         if (userInput[INPUT_POS_1] == "PLACE" && userInput[INPUT_POS_2] != "" && userInput[INPUT_POS_3] == "AT" && userInput[INPUT_POS_4] != "" && !(userInput[INPUT_POS_2].length() > 2))
         {
+
             int locationRow = (userInput[INPUT_POS_4].at(0)) - ASCII_CONVERTER_LETTER;
             std::string colVal = userInput[INPUT_POS_4];
 
@@ -130,10 +203,56 @@ bool Game::playTurn(vector<string> userInput)
                 {
                     char temp[2] = {colVal[1], colVal[2]};
                     std::string tempStr = temp;
+                    int value = std::stoi(tempStr);
+                    int locationCol = value + 1;
                     try
                     {
-                        int value = std::stoi(tempStr);
-                        returnVal = playTile(tile, locationRow, value + 1);
+                        if (tileNum == 0)
+                        {
+
+                            if (playTile(tile, locationRow, locationCol))
+                            {
+                                tileNum++;
+                            }
+                            printGameStatus();
+                            firstTileRow = locationRow;
+                            firstTileCol = locationCol;
+                        }
+                        else if (tileNum == 1)
+                        {
+                            if (neighbourToFirst(locationRow, locationCol))
+                            {
+
+                                if (playTile(tile, locationRow, locationCol))
+                                {
+                                    tileNum++;
+                                }
+                                printGameStatus();
+                                setDirectionFromFirst(locationRow, locationCol);
+                                cout << orientation << endl;
+                            }
+                            else
+                            {
+                                cout << "Second tile needs to be in the same line as your first." << endl
+                                     << endl;
+                            }
+                        }
+                        else
+                        {
+                            if (neighbourToFirst(locationRow, locationCol) && isInDirectionOfFirst(locationRow, locationCol))
+                            {
+                                if (playTile(tile, locationRow, locationCol))
+                                {
+                                    tileNum++;
+                                }
+                                printGameStatus();
+                            }
+                            else
+                            {
+                                cout << "Tile needs to be in the same line direction as you first and second tiles." << endl
+                                     << endl;
+                            }
+                        }
                     }
                     catch (std::invalid_argument &e)
                     {
@@ -149,25 +268,35 @@ bool Game::playTurn(vector<string> userInput)
             {
                 cout << "That tile is not in your hand. Try again: " << endl;
             }
+
+            returnVal = false;
         }
         else if (userInput[INPUT_POS_1] == "REPLACE" && userInput[INPUT_POS_2] != "" && userInput.size() == 2 && !(userInput[INPUT_POS_2].length() > 2))
         { //user is replacing tile
-            int tileIndex = currentPlayer->getHand()->existsAt(userInput[INPUT_POS_2].at(0), (userInput[INPUT_POS_2].at(1)) - ASCII_CONVERTER_DIGIT);
-            //If the LinkedList returns a index for the found tile
-            if (tileIndex > -1)
+            if (!(tileNum > 0))
             {
-                Tile *tile = currentPlayer->getHand()->get(tileIndex);
-                replaceTile(tile);
-                returnVal = true;
+                int tileIndex = currentPlayer->getHand()->existsAt(userInput[INPUT_POS_2].at(0), (userInput[INPUT_POS_2].at(1)) - ASCII_CONVERTER_DIGIT);
+                //If the LinkedList returns a index for the found tile
+                if (tileIndex > -1)
+                {
+                    Tile *tile = currentPlayer->getHand()->get(tileIndex);
+                    replaceTile(tile);
+                    returnVal = true;
+                }
+                else
+                {
+                    cout << "That tile is not in your hand. Try again: " << endl;
+                }
+                //the case where user does replace command at the start of the game, still allow placement of first tile
+                if (turnNum == 1)
+                {
+                    turnNum--;
+                }
             }
             else
             {
-                cout << "That tile is not in your hand. Try again: " << endl;
-            }
-            //the case where user does replace command at the start of the game, still allow placement of first tile
-            if (turnNum == 1)
-            {
-                turnNum--;
+                cout << "You cannot replace a tile on a turn where you've placed a tile!" << endl
+                     << endl;
             }
         }
         else if (userInput[INPUT_POS_1] == "SAVE" && userInput.size() > 1)
@@ -176,13 +305,39 @@ bool Game::playTurn(vector<string> userInput)
 
             outputFileName = userInput[INPUT_POS_2];
 
-            GameSaver *gs = new GameSaver(player1, player2, board, bag, currentPlayer, outputFileName);
-            delete gs;
+            if (playerCount == 2)
+            {
+                GameSaver *gs = new GameSaver(player1, player2, board, bag, currentPlayer, outputFileName, playerCount);
+                delete gs;
+            }
+            else if (playerCount == 3)
+            {
+                GameSaver *gs = new GameSaver(player1, player2, player3, board, bag, currentPlayer, outputFileName, playerCount);
+                delete gs;
+            }
+            else
+            {
+                GameSaver *gs = new GameSaver(player1, player2, player3, player4, board, bag, currentPlayer, outputFileName, playerCount);
+                delete gs;
+            }
+
             //Don't switch player turn when saving
             returnVal = false;
             cout << endl
                  << "Game successfully saved" << endl
                  << endl;
+        }
+        else if (userInput[INPUT_POS_1] == "END" && userInput[INPUT_POS_2] == "TURN")
+        {
+            if (!bag->isEmpty())
+            {
+                drawCard();
+            }
+            firstTileRow = -1;
+            firstTileCol = -1;
+            tileNum = 0;
+            orientation = undirected;
+            returnVal = true;
         }
         else if (userInput[INPUT_POS_1] == "QUIT")
         { //user is quitting game
@@ -192,16 +347,150 @@ bool Game::playTurn(vector<string> userInput)
         {
             cout << "Command not recognised. Please try again: " << endl
                  << endl;
+
             returnVal = false;
         }
     }
     else
     {
+
         cout << "Command not recognised. Please try again: " << endl
              << endl;
         returnVal = false;
     }
     return returnVal;
+}
+
+bool Game::isInLineOfFirst(int newRow, int newCol)
+{
+    bool inLine = false;
+    if (newRow == firstTileRow)
+    {
+        inLine = true;
+    }
+    if (newRow == firstTileCol)
+    {
+        inLine = true;
+    }
+    return inLine;
+}
+
+void Game::setDirectionFromFirst(int newRow, int newCol)
+{
+
+    if (newCol > firstTileCol || newCol < firstTileCol)
+    {
+        orientation = horizontal;
+    }
+
+    if (newRow > firstTileRow || newRow < firstTileRow)
+    {
+        orientation = vertical;
+    }
+}
+
+bool Game::isInDirectionOfFirst(int newRow, int newCol)
+{
+
+    bool isInDir = false;
+    if (orientation == horizontal)
+    {
+        if (newRow == firstTileRow)
+        {
+            isInDir = true;
+        }
+    }
+    if (orientation == vertical)
+    {
+        if (newCol == firstTileCol)
+        {
+            isInDir = true;
+        }
+    }
+
+    return isInDir;
+}
+
+bool Game::neighbourToFirst(int row, int col)
+{
+    Direction d;
+    bool tileFound = false;
+    if (row < ROW_MAX)
+    {
+        if (board->hasTileAt(row + 1, col))
+        {
+            d = Down;
+            tileFound = checkLineForFirst(row + 1, col, d);
+        }
+    }
+    if (row > ROW_MIN)
+    {
+        if (board->hasTileAt(row - 1, col) && !tileFound)
+        {
+            d = Up;
+            tileFound = checkLineForFirst(row - 1, col, d);
+        }
+    }
+    if (col < COLUMN_MAX)
+    {
+        if (board->hasTileAt(row, col + 1) && !tileFound)
+        {
+            d = Right;
+            tileFound = checkLineForFirst(row, col + 1, d);
+        }
+    }
+    if (col > COLUMN_MIN)
+    {
+        if (board->hasTileAt(row, col - 1) && !tileFound)
+        {
+            d = Left;
+            tileFound = checkLineForFirst(row, col - 1, d);
+        }
+    }
+
+    return tileFound;
+}
+
+bool Game::checkLineForFirst(int row, int col, Game::Direction direction)
+{
+    bool retVal = false;
+
+    int y = 0;
+    int x = 0;
+
+    if (direction == Up)
+    {
+        y = -1;
+    }
+    else if (direction == Down)
+    {
+        y = 1;
+    }
+    else if (direction == Left)
+    {
+        x = -1;
+    }
+    else if (direction == Right)
+    {
+        x = 1;
+    }
+
+    if (row == firstTileRow && col == firstTileCol)
+    {
+        retVal = true;
+    }
+    else if (row + y >= ROW_MIN && row + y <= ROW_MAX && col + x >= COLUMN_MIN && col + x <= COLUMN_MAX)
+    {
+        if (!board->hasTileAt(row + y, col + x))
+        {
+            retVal = false;
+        }
+        else
+        {
+            retVal = checkLineForFirst(row + y, col + x, direction);
+        }
+    }
+    return retVal;
 }
 
 bool Game::playTile(Tile *tile, int row, int col)
@@ -214,11 +503,7 @@ bool Game::playTile(Tile *tile, int row, int col)
         board->placeTile(tile, row, col);
         updatePoints(row, col);
         //update the score
-        if (!bag->isEmpty())
 
-        {
-            drawCard();
-        }
         currentPlayer->getHand()->removeElement(tile);
     }
     else
@@ -358,25 +643,69 @@ void Game::replaceTile(Tile *tile)
 {
     currentPlayer->getHand()->removeElement(tile);
     bag->addBack(tile);
-    drawCard();
-}
-
-void Game::drawCard()
-{
     Tile *newTile = bag->get(0);
     bag->removeFront();
     currentPlayer->getHand()->addBack(newTile);
 }
 
+void Game::drawCard()
+{
+    for (int i = 0; i < tileNum; i++)
+    {
+        Tile *newTile = bag->get(0);
+        bag->removeFront();
+        currentPlayer->getHand()->addBack(newTile);
+    }
+}
+
 void Game::switchPlayer()
 {
-    if (currentPlayer->equals(player1))
+    if (playerCount == 2)
     {
-        currentPlayer = player2;
+        if (currentPlayer->equals(player1))
+        {
+            currentPlayer = player2;
+        }
+        else
+        {
+            currentPlayer = player1;
+        }
     }
-    else
+
+    if (playerCount == 3)
     {
-        currentPlayer = player1;
+        if (currentPlayer->equals(player1))
+        {
+            currentPlayer = player2;
+        }
+        else if (currentPlayer->equals(player2))
+        {
+            currentPlayer = player3;
+        }
+        else
+        {
+            currentPlayer = player1;
+        }
+    }
+
+    if (playerCount == 4)
+    {
+        if (currentPlayer->equals(player1))
+        {
+            currentPlayer = player2;
+        }
+        else if (currentPlayer->equals(player2))
+        {
+            currentPlayer = player3;
+        }
+        else if (currentPlayer->equals(player3))
+        {
+            currentPlayer = player4;
+        }
+        else
+        {
+            currentPlayer = player1;
+        }
     }
 }
 
@@ -649,9 +978,17 @@ void Game::printGameStatus()
          << currentPlayer->getName() << ", it's your turn" << endl;
     cout << "Score for " << player1->getName() << ": " << player1->getPoints() << endl;
     cout << "Score for " << player2->getName() << ": " << player2->getPoints() << endl;
-    board->printBoard();
+    if (player3 != nullptr)
+    {
+        cout << "Score for " << player3->getName() << ": " << player3->getPoints() << endl;
+    }
+    if (player4 != nullptr)
+    {
+        cout << "Score for " << player4->getName() << ": " << player4->getPoints() << endl;
+    }
+    board->printPrettyBoard();
     cout << "Your hand is" << endl;
-    cout << currentPlayer->getHand()->toString() << endl
+    cout << currentPlayer->getHand()->toPrettyString() << endl
          << endl;
 }
 

@@ -71,25 +71,64 @@ void runMenu(int userChoice, bool *stop)
 {
    if (userChoice == CHOICE_1)
    {
+      int numPlayers = 0;
       cout << endl
            << "Starting a New Game" << endl
            << endl;
-      GameInit *gameInit = new GameInit();
-      Game *game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
 
-      if (!gameInit->getEofInput())
+      bool eofInput = false;
+      while (!(numPlayers <= 4 && numPlayers >= 2) && !eofInput)
       {
-         game->executeGameplay();
+         cout << endl
+              << "How many players? (2-4 Players)"
+              << endl;
+
+         cin >> numPlayers;
+         if (cin.eof())
+         {
+            eofInput = true;
+         }
       }
 
+      if (!eofInput)
+      {
+         GameInit *gameInit = new GameInit(numPlayers);
+
+         Game *game;
+
+         if (numPlayers == 2)
+         {
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+         }
+         else if (numPlayers == 3)
+         {
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+         }
+         else
+         {
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getPlayer4(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+         }
+
+         if (!gameInit->getEofInput())
+         {
+            game->executeGameplay();
+         }
+
+         else
+         {
+            closeProgMsg();
+         }
+
+         delete game;
+
+         *stop = true;
+      }
       else
       {
-         closeProgMsg();
+         cout << endl
+              << "Goodbye" << endl;
+         *stop = true;
       }
-
-      delete game;
-
-      *stop = true;
    }
    else if (userChoice == CHOICE_2)
    {
@@ -101,8 +140,22 @@ void runMenu(int userChoice, bool *stop)
       try
       {
          GameInit *gameInit = new GameInit(fileName);
+
          cout << "Qwirkle game successfully loaded" << endl;
          Game *game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+         if (gameInit->getPlayerCount() == 2)
+         {
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+         }
+         else if (gameInit->getPlayerCount() == 3)
+         {
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+         }
+         else
+         {
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getPlayer4(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+         }
+
          delete gameInit;
          cin.ignore();
          game->executeGameplay();

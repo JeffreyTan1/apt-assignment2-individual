@@ -60,6 +60,8 @@ public:
 
    std::string toString();
 
+   std::string toPrettyString();
+
    void removeElement(Tile *tile);
 
 private:

@@ -23,6 +23,7 @@ public:
     Tile *getTileAt(int row, int col);
     std::string getState();
     bool hasTileAt(int row, int col);
+    void printPrettyBoard();
 
 private:
     vector<vector<Tile *>>

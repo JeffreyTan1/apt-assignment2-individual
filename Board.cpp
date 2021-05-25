@@ -102,6 +102,64 @@ void Board::printBoard()
     }
 }
 
+void Board::printPrettyBoard()
+{
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < COLUMN_MAX; j++)
+        {
+            if (i == 0 && j == 0)
+            {
+                cout << "   " << j << "  ";
+            }
+            else if (i == 0 && j < 10)
+            {
+                cout << j << "  ";
+            }
+            else if (i == 0 && j > 9)
+            {
+                cout << j << " ";
+            }
+            else if (i == 1 && j == 0)
+            {
+                cout << "  -"
+                     << "--";
+            }
+            else if (i == 1 && j == COLUMN_MAX - 1)
+            {
+                cout << "----";
+            }
+            else if (i == 1)
+            {
+                cout << "---";
+            }
+        }
+        cout << endl;
+    }
+
+    for (int i = 0; i < ROWS; i++)
+    {
+        cout << init[i] << " ";
+        for (int j = 0; j < COLS; ++j)
+        {
+            if (!(board[i][j] == nullptr))
+            {
+                string ptv = board[i][j]->toPrettyString();
+                cout << ptv + "|";
+            }
+            else if (j == 0)
+            {
+                cout << "|";
+            }
+            else
+            {
+                cout << "  |";
+            }
+        }
+        cout << endl;
+    }
+}
+
 void Board::placeTile(Tile *tile, int row, int col)
 {
     if (col > COLUMN_MAX + 1)

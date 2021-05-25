@@ -210,6 +210,32 @@ std::string LinkedList::toString()
    return linkedListString;
 }
 
+std::string LinkedList::toPrettyString()
+{
+   std::string linkedListString = "";
+   if (head != nullptr)
+   {
+      Node *currentNode = head;
+      bool cont = true;
+      while (cont)
+      {
+         linkedListString = linkedListString + currentNode->getTile()->toPrettyString();
+
+         if (currentNode->getNext() == nullptr)
+         {
+            cont = false;
+         }
+         else
+         {
+            linkedListString = linkedListString + ",";
+            currentNode = currentNode->getNext();
+         }
+      }
+   }
+
+   return linkedListString;
+}
+
 void LinkedList::removeElement(Tile *tile)
 {
 

@@ -21,6 +21,8 @@ class Game
 {
 public:
     Game(Player *player1, Player *player2, LinkedList *bag, Board *board, Player *currentPlayer);
+    Game(Player *player1, Player *player2, Player *player3, LinkedList *bag, Board *board, Player *currentPlayer);
+    Game(Player *player1, Player *player2, Player *player3, Player *player4, LinkedList *bag, Board *board, Player *currentPlayer);
 
     ~Game();
     void executeGameplay();
@@ -30,6 +32,13 @@ public:
         Down,
         Left,
         Right
+    };
+
+    enum Orientation
+    {
+        horizontal,
+        vertical,
+        undirected
     };
 
 private:
@@ -44,21 +53,39 @@ private:
     void updatePoints(int row, int col);
     int countNeighbours(int row, int col);
     int countLine(int row, int col, Game::Direction direction);
+
     bool neighboursContains(Tile *tile, int row, int col);
     bool checkLine(int row, int col, Game::Direction direction, Tile *searchTile);
+
     bool playRound();
     void printGameStatus();
 
+    bool neighbourToFirst(int row, int col);
+    bool checkLineForFirst(int row, int col, Game::Direction direction);
+    bool isInLineOfFirst(int newRow, int newCol);
+    void setDirectionFromFirst(int newRow, int newCol);
+    bool isInDirectionOfFirst(int newRow, int newCol);
+
     std::vector<std::string> processCommand(std::string inputString);
 
+    std::vector<Player *> players;
     Player *player1;
     Player *player2;
+    Player *player3;
+    Player *player4;
+    int playerCount;
     LinkedList *bag;
     Board *board;
     Player *currentPlayer;
     bool terminateGame;
     bool gameOver;
     int turnNum = 0;
+    int tileNum = 0;
+
+    Game::Orientation orientation = undirected;
+
+    int firstTileRow = -1;
+    int firstTileCol = -1;
 };
 
 #endif // ASSIGN2_GAME_H

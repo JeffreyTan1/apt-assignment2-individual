@@ -19,16 +19,19 @@ class Board;
 class GameInit
 {
 public:
-   GameInit();
+   GameInit(int numPlayers);
    GameInit(std::string filename);
    ~GameInit();
 
    Player *getPlayer1();
    Player *getPlayer2();
+   Player *getPlayer3();
+   Player *getPlayer4();
    Board *getBoard();
    LinkedList *getBag();
    int getBHeight();
    int getBWidth();
+   int getPlayerCount();
    Player *getCurrPlayer();
    bool getEofInput();
 
@@ -44,12 +47,15 @@ private:
    void loadCurrPlayer(std::string line1);
    Player *player1;
    Player *player2;
+   Player *player3;
+   Player *player4;
    Player *currPlayer;
 
    Board *board;
    LinkedList *bag;
    int bHeight;
    int bWidth;
+   int playerCount;
 
    bool eofInput = false;
 

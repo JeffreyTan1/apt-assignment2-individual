@@ -8,6 +8,7 @@
 #include <cstring>
 #include <algorithm>
 #include <random>
+
 #define ASCII_CONVERTER_DIGIT 48
 #define ASCII_CONVERTER_LETTER 65
 using std::atoi;
@@ -22,24 +23,21 @@ GameInit::~GameInit()
 {
 }
 
-GameInit::GameInit()
+GameInit::GameInit(int numPlayers)
 {
     board = new Board();
     bag = new LinkedList();
     newRandomBag();
 
-    newPlayer(1);
-    cout << endl;
-
-    //in case the user does EOF character before entering player 2 name
-    if (!eofInput)
+    for (int i = 1; i <= numPlayers; i++)
     {
-        newPlayer(2);
-        cin.ignore();
+        if (!eofInput)
+        {
+            newPlayer(i);
+            cout << endl;
+        }
     }
-
     currPlayer = player1;
-
     //End of initialiser
 }
 
@@ -129,6 +127,14 @@ void GameInit::newPlayer(int pNum)
     {
         player2 = new Player(name, NEW_PLAYER_POINTS, hand);
     }
+    else if (pNum == 3)
+    {
+        player3 = new Player(name, NEW_PLAYER_POINTS, hand);
+    }
+    else if (pNum == 4)
+    {
+        player4 = new Player(name, NEW_PLAYER_POINTS, hand);
+    }
 }
 
 GameInit::GameInit(std::string filename)
@@ -138,11 +144,15 @@ GameInit::GameInit(std::string filename)
 
     ifstream saveFile(filename + ".txt");
 
+    std::string input;
+    std::getline(saveFile, input);
+    playerCount = stoi(input);
+
     std::string line1;
     std::string line2;
     std::string line3;
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < playerCount; i++)
     {
         std::getline(saveFile, line1);
         std::getline(saveFile, line2);
@@ -194,6 +204,14 @@ void GameInit::loadPlayer(std::string line1, std::string line2, std::string line
     else if (pNum == 2)
     {
         player2 = new Player(line1, points, hand);
+    }
+    else if (pNum == 3)
+    {
+        player3 = new Player(line1, points, hand);
+    }
+    else
+    {
+        player4 = new Player(line1, points, hand);
     }
 }
 
@@ -310,6 +328,16 @@ Player *GameInit::getPlayer2()
     return player2;
 }
 
+Player *GameInit::getPlayer3()
+{
+    return player3;
+}
+
+Player *GameInit::getPlayer4()
+{
+    return player4;
+}
+
 Board *GameInit::getBoard()
 {
     return board;
@@ -328,6 +356,11 @@ int GameInit::getBHeight()
 int GameInit::getBWidth()
 {
     return bWidth;
+}
+
+int GameInit::getPlayerCount()
+{
+    return playerCount;
 }
 
 Player *GameInit::getCurrPlayer()

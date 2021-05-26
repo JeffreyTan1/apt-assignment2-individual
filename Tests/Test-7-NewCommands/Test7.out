@@ -1,0 +1,99 @@
+Welcome to Qwirkle!
+-------------------
+Menu
+---
+1. New Game
+2. Load game
+3. Credits (Show student information)
+4. Quit
+5. High Scores
+> 
+68    BY    PAULA
+
+
+69    BY    HENRY
+
+
+78    BY    HENRY
+
+
+140    BY    MAHIR
+
+
+150    BY    JEFFREY
+
+Menu
+---
+1. New Game
+2. Load game
+3. Credits (Show student information)
+4. Quit
+5. High Scores
+> 
+Starting a New Game
+
+
+How many players? (2-4 Players)
+Enter a name for player 1 (uppercase characters only)
+> 
+Enter a name for player 2 (uppercase characters only)
+> 
+Enter a name for player 3 (uppercase characters only)
+> 
+Enter a name for player 4 (uppercase characters only)
+> 
+Let's Play!
+
+
+JAKE, it's your turn
+Score for JAKE: 0
+Score for JOHN: 0
+Score for JIM: 0
+Score for JANE: 0
+   0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
+  -------------------------------------------------------------------------------
+A |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+B |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+C |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+D |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+E |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+F |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+G |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+H |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+I |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+J |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+K |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+L |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+M |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+N |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+O |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+P |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+Q |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+R |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+S |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+T |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+U |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+V |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+W |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+Y |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+Your hand is
+[34m◯[0m1,[38;5;209m☘[0m6,[35m🟌[0m5,[34m◯[0m1,[32m☘[0m6,[32m◯[0m1
+
+> Available commands: 
+
+PLACE (TILE) AT (LOCATION) - Places a tile in your hand on the board.
+e.g. PLACE B4 AT A9
+
+PASS - Finishes your turn.
+
+REPLACE (TILE) - Replaces a tile in your hand with one from the bag.
+e.g. REPLACE B4
+
+SAVE (FILENAME) - Saves the game to a file which can be loaded later.
+
+QUIT - Closes program
+
+> 
+Goodbye

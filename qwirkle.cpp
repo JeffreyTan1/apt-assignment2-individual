@@ -197,7 +197,7 @@ void runMenu(int userChoice, bool *stop)
          }
 
          delete gameInit;
-         cin.ignore();
+         //cin.ignore();
          game->executeGameplay();
          delete game;
          *stop = true;

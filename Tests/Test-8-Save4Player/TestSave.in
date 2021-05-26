@@ -1,0 +1,19 @@
+1
+4
+JOHN
+JAMES
+JIM
+JANE
+place B1 at M17
+place G1 at M18
+END
+place R1 at M16
+place G1 at N16
+END
+PLACE Y1 AT M15
+END
+PLACE O1 AT M14
+PLACE O6 AT L14
+END
+save TestSave
+quit

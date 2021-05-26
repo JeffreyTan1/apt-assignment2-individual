@@ -103,6 +103,8 @@ Game::~Game()
 
 void Game::executeGameplay()
 {
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cout
         << "Let's Play!" << endl
         << endl;
@@ -423,7 +425,7 @@ bool Game::playTurn(vector<string> userInput)
             // if more than one tile is placed
             if (tileNum > 1)
             {
-                cout << "update using next" << endl;
+
                 Orientation checkOrientation;
                 if (orientation == vertical)
                 {

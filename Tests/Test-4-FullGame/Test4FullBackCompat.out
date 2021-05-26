@@ -50,8 +50,6 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 B1,O6,P5,B1,G6,G1
 
-> Command not recognised. Please try again: 
-
 > 
 JEFFREY, it's your turn
 Score for MAHIR: 1
@@ -297,7 +295,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 P3,G6,G1,B4,Y1,B5
 
-> Invalid move. Try again:
+> Invalid move. Try again: 
 > 
 MAHIR, it's your turn
 Score for MAHIR: 8
@@ -473,7 +471,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 O6,B1,G6,R6,O6,R1
 
-> Invalid move. Try again:
+> Invalid move. Try again: 
 > 
 JEFFREY, it's your turn
 Score for MAHIR: 16
@@ -1642,7 +1640,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 G1,O2,G2,G3,R2,P6
 
-> Invalid move. Try again:
+> Invalid move. Try again: 
 > 
 MAHIR, it's your turn
 Score for MAHIR: 77

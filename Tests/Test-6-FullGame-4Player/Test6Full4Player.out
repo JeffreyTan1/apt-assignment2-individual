@@ -59,8 +59,6 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◯[0m1,[38;5;209m☘[0m6,[35m🟌[0m5,[34m◯[0m1,[32m☘[0m6,[32m◯[0m1
 
-> Command not recognised. Please try again: 
-
 > 
 JANE, it's your turn
 Score for JANE: 0
@@ -135,9 +133,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [38;5;209m☘[0m6,[35m🟌[0m5,[34m◯[0m1,[32m☘[0m6
 
-> update using first
-update using next
-
+> 
 CAMERON, it's your turn
 Score for JANE: 2
 Score for CAMERON: 0
@@ -248,9 +244,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [35m◆[0m3,[34m◼[0m4,[32m☘[0m6,[38;5;209m🟌[0m5
 
-> update using first
-update using next
-
+> 
 PAULA, it's your turn
 Score for JANE: 2
 Score for CAMERON: 5
@@ -324,8 +318,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [31m☘[0m6,[34m◼[0m4,[38;5;209m◼[0m4,[32m🟌[0m5,[34m🟌[0m5
 
-> update using first
-
+> 
 HENRY, it's your turn
 Score for JANE: 2
 Score for CAMERON: 5
@@ -436,9 +429,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [38;5;209m☘[0m6,[35m✦[0m2,[31m◯[0m1,[38;5;209m◯[0m1
 
-> update using first
-update using next
-
+> 
 JANE, it's your turn
 Score for JANE: 2
 Score for CAMERON: 5
@@ -586,9 +577,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [35m🟌[0m5,[34m◯[0m1,[34m◆[0m3
 
-> update using first
-update using next
-
+> 
 CAMERON, it's your turn
 Score for JANE: 7
 Score for CAMERON: 5
@@ -662,8 +651,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◼[0m4,[32m☘[0m6,[38;5;209m🟌[0m5,[33m✦[0m2,[31m◼[0m4
 
-> update using first
-
+> 
 PAULA, it's your turn
 Score for JANE: 7
 Score for CAMERON: 8
@@ -774,9 +762,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◼[0m4,[38;5;209m◼[0m4,[32m🟌[0m5,[34m🟌[0m5
 
-> update using first
-update using next
-
+> 
 HENRY, it's your turn
 Score for JANE: 7
 Score for CAMERON: 8
@@ -852,8 +838,7 @@ Your hand is
 
 > Second tile needs to be in the same line as your first.
 
-> update using first
-
+> 
 JANE, it's your turn
 Score for JANE: 7
 Score for CAMERON: 8
@@ -964,11 +949,9 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [35m🟌[0m5,[34m◯[0m1,[33m◼[0m4,[33m☘[0m6
 
-> update using first
-
+> 
 QWIRKLE!!!
 
-update using next
 
 CAMERON, it's your turn
 Score for JANE: 15
@@ -1043,8 +1026,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◼[0m4,[32m☘[0m6,[38;5;209m🟌[0m5,[33m✦[0m2,[31m◼[0m4
 
-> update using first
-
+> 
 QWIRKLE!!!
 
 
@@ -1195,9 +1177,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◼[0m4,[38;5;209m◼[0m4,[38;5;209m✦[0m2
 
-> update using first
-update using next
-
+> 
 HENRY, it's your turn
 Score for JANE: 15
 Score for CAMERON: 16
@@ -1345,9 +1325,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [38;5;209m☘[0m6,[35m✦[0m2,[38;5;209m✦[0m2
 
-> update using first
-update using next
-
+> 
 JANE, it's your turn
 Score for JANE: 15
 Score for CAMERON: 16
@@ -1421,8 +1399,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◯[0m1,[33m◼[0m4,[33m☘[0m6,[33m◼[0m4,[32m✦[0m2
 
-> update using first
-
+> 
 CAMERON, it's your turn
 Score for JANE: 20
 Score for CAMERON: 16
@@ -1496,8 +1473,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◼[0m4,[38;5;209m🟌[0m5,[33m✦[0m2,[31m◼[0m4,[33m◆[0m3
 
-> update using first
-
+> 
 PAULA, it's your turn
 Score for JANE: 20
 Score for CAMERON: 20
@@ -1608,9 +1584,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◼[0m4,[35m◆[0m3,[32m🟌[0m5,[35m🟌[0m5
 
-> update using first
-update using next
-
+> 
 HENRY, it's your turn
 Score for JANE: 20
 Score for CAMERON: 20
@@ -1721,9 +1695,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [38;5;209m☘[0m6,[35m✦[0m2,[38;5;209m✦[0m2,[35m◼[0m4
 
-> update using first
-update using next
-
+> 
 JANE, it's your turn
 Score for JANE: 20
 Score for CAMERON: 20
@@ -1800,8 +1772,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◯[0m1,[33m◼[0m4,[33m☘[0m6,[33m◼[0m4,[32m✦[0m2,[31m✦[0m2
 
-> update using first
-
+> 
 CAMERON, it's your turn
 Score for JANE: 20
 Score for CAMERON: 20
@@ -1840,8 +1811,7 @@ Your hand is
 
 > Command not recognised. Please try again: 
 
-> update using first
-
+> 
 PAULA, it's your turn
 Score for JANE: 20
 Score for CAMERON: 20
@@ -1915,8 +1885,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◼[0m4,[35m◆[0m3,[32m🟌[0m5,[35m🟌[0m5,[32m◆[0m3
 
-> update using first
-
+> 
 HENRY, it's your turn
 Score for JANE: 20
 Score for CAMERON: 20
@@ -2027,9 +1996,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [35m✦[0m2,[38;5;209m✦[0m2,[35m◼[0m4,[34m✦[0m2
 
-> update using first
-update using next
-
+> 
 JANE, it's your turn
 Score for JANE: 20
 Score for CAMERON: 20
@@ -2140,9 +2107,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◯[0m1,[33m◼[0m4,[33m☘[0m6,[33m◼[0m4
 
-> update using first
-update using next
-
+> 
 CAMERON, it's your turn
 Score for JANE: 25
 Score for CAMERON: 20
@@ -2290,9 +2255,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [38;5;209m🟌[0m5,[33m✦[0m2,[33m◆[0m3
 
-> update using first
-update using next
-
+> 
 PAULA, it's your turn
 Score for JANE: 25
 Score for CAMERON: 27
@@ -2403,9 +2366,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◼[0m4,[32m🟌[0m5,[32m◆[0m3,[31m✦[0m2
 
-> update using first
-update using next
-
+> 
 HENRY, it's your turn
 Score for JANE: 25
 Score for CAMERON: 27
@@ -2516,9 +2477,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [38;5;209m✦[0m2,[35m◼[0m4,[34m✦[0m2,[34m◆[0m3
 
-> update using first
-update using next
-
+> 
 JANE, it's your turn
 Score for JANE: 25
 Score for CAMERON: 27
@@ -2629,9 +2588,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◯[0m1,[33m☘[0m6,[33m◼[0m4,[34m🟌[0m5
 
-> update using first
-update using next
-
+> 
 CAMERON, it's your turn
 Score for JANE: 30
 Score for CAMERON: 27
@@ -2709,8 +2666,7 @@ Your hand is
 
 > Second tile needs to be in the same line as your first.
 
-> update using first
-
+> 
 PAULA, it's your turn
 Score for JANE: 30
 Score for CAMERON: 29
@@ -2821,9 +2777,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [34m◼[0m4,[32m◆[0m3,[31m✦[0m2,[38;5;209m◼[0m4
 
-> update using first
-update using next
-
+> 
 HENRY, it's your turn
 Score for JANE: 30
 Score for CAMERON: 29
@@ -2934,9 +2888,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [38;5;209m✦[0m2,[35m◼[0m4,[34m✦[0m2,[38;5;209m◯[0m1
 
-> update using first
-update using next
-
+> 
 JANE, it's your turn
 Score for JANE: 30
 Score for CAMERON: 29
@@ -3084,9 +3036,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [33m☘[0m6,[33m◼[0m4,[35m✦[0m2
 
-> update using first
-update using next
-
+> 
 CAMERON, it's your turn
 Score for JANE: 34
 Score for CAMERON: 29
@@ -3162,8 +3112,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [38;5;209m🟌[0m5,[33m✦[0m2,[38;5;209m◆[0m3,[33m✦[0m2,[33m🟌[0m5,[32m✦[0m2
 
-> update using first
-
+> 
 PAULA, it's your turn
 Score for JANE: 34
 Score for CAMERON: 29
@@ -3274,11 +3223,9 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [32m◆[0m3,[31m✦[0m2,[33m◯[0m1,[32m◼[0m4
 
-> update using first
-
+> 
 QWIRKLE!!!
 
-update using next
 
 HENRY, it's your turn
 Score for JANE: 34
@@ -3390,11 +3337,9 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [38;5;209m✦[0m2,[34m✦[0m2,[38;5;209m◯[0m1,[34m☘[0m6
 
-> update using first
-
+> 
 QWIRKLE!!!
 
-update using next
 
 JANE, it's your turn
 Score for JANE: 34
@@ -3469,8 +3414,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [33m◼[0m4,[35m✦[0m2
 
-> update using first
-
+> 
 CAMERON, it's your turn
 Score for JANE: 37
 Score for CAMERON: 29
@@ -3581,9 +3525,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [38;5;209m🟌[0m5,[38;5;209m◆[0m3,[33m✦[0m2,[33m🟌[0m5
 
-> update using first
-update using next
-
+> 
 PAULA, it's your turn
 Score for JANE: 37
 Score for CAMERON: 37
@@ -3694,11 +3636,9 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [31m✦[0m2,[33m◯[0m1
 
-> update using first
-
+> 
 QWIRKLE!!!
 
-update using next
 
 HENRY, it's your turn
 Score for JANE: 37
@@ -3810,9 +3750,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [38;5;209m✦[0m2,[38;5;209m◯[0m1
 
-> update using first
-update using next
-
+> 
 JANE, it's your turn
 Score for JANE: 37
 Score for CAMERON: 37
@@ -3886,8 +3824,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [33m◼[0m4
 
-> update using first
-
+> 
 CAMERON, it's your turn
 Score for JANE: 40
 Score for CAMERON: 37
@@ -3998,11 +3935,9 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [33m✦[0m2,[33m🟌[0m5
 
-> update using first
-
+> 
 QWIRKLE!!!
 
-update using next
 
 PAULA, it's your turn
 Score for JANE: 40
@@ -4077,8 +4012,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 [31m✦[0m2
 
-> update using first
-
+> 
 HENRY, it's your turn
 Score for JANE: 40
 Score for CAMERON: 45
@@ -4189,9 +4123,7 @@ Z |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  
 Your hand is
 
 
-> update using first
-update using next
-
+> 
 Game over
 Score for JANE: 40
 Score for CAMERON: 45
@@ -4201,19 +4133,19 @@ Player HENRY won!
 
 All-time high scores:
 
-1. 62 achieved a score of:       JANE
+1. 68 achieved a score of:       PAULA
 
 
-2. 65 achieved a score of:       CAMERON
+2. 69 achieved a score of:       HENRY
 
 
-3. 68 achieved a score of:       PAULA
+3. 78 achieved a score of:       HENRY
 
 
-4. 69 achieved a score of:       HENRY
+4. 140 achieved a score of:       MAHIR
 
 
-5. 78 achieved a score of:       HENRY
+5. 150 achieved a score of:       JEFFREY
 
 
 Goodbye

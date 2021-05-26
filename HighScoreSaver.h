@@ -7,7 +7,7 @@
 class HighScoreSaver
 {
 public:
-    HighScoreSaver(std::map<std::string, int> currGameScores);
+    HighScoreSaver(std::map<int, std::string> currGameScores);
 
 private:
     std::ofstream outFile;

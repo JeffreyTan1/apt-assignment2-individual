@@ -1,5 +1,20 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/mnt/c/Users/tanma/Google Drive/Synced Desktop/Y2S1/APT Files/Assignments/2/individual/apt-assignment2-individual'
-make: Nothing to be done for 'all'.
+g++ -Wall -Werror -std=c++14 -g -O -c Tile.cpp
+g++ -Wall -Werror -std=c++14 -g -O -c Node.cpp
+g++ -Wall -Werror -std=c++14 -g -O -c LinkedList.cpp
+ 
+g++ -Wall -Werror -std=c++14 -g -O -c Board.cpp
+g++ -Wall -Werror -std=c++14 -g -O -c Game.cpp
+ 
+g++ -Wall -Werror -std=c++14 -g -O -c GameInit.cpp
+g++ -Wall -Werror -std=c++14 -g -O -c Player.cpp
+ 
+g++ -Wall -Werror -std=c++14 -g -O -c qwirkle.cpp
+g++ -Wall -Werror -std=c++14 -g -O -c GameSaver.cpp
+ 
+g++ -Wall -Werror -std=c++14 -g -O -c HighScoreLoader.cpp
+g++ -Wall -Werror -std=c++14 -g -O -c HighScoreSaver.cpp
+g++ -Wall -Werror -std=c++14 -g -O -o qwirkle Tile.o Node.o LinkedList.o Board.o Game.o GameInit.o Player.o qwirkle.o GameSaver.o HighScoreLoader.o HighScoreSaver.o
 make: Leaving directory '/mnt/c/Users/tanma/Google Drive/Synced Desktop/Y2S1/APT Files/Assignments/2/individual/apt-assignment2-individual'
  

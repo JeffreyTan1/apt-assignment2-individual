@@ -20,9 +20,9 @@ class Player;
 class Game
 {
 public:
-    Game(Player *player1, Player *player2, LinkedList *bag, Board *board, Player *currentPlayer);
-    Game(Player *player1, Player *player2, Player *player3, LinkedList *bag, Board *board, Player *currentPlayer);
-    Game(Player *player1, Player *player2, Player *player3, Player *player4, LinkedList *bag, Board *board, Player *currentPlayer);
+    Game(Player *player1, Player *player2, LinkedList *bag, Board *board, Player *currentPlayer, bool isEnhanced);
+    Game(Player *player1, Player *player2, Player *player3, LinkedList *bag, Board *board, Player *currentPlayer, bool isEnhanced);
+    Game(Player *player1, Player *player2, Player *player3, Player *player4, LinkedList *bag, Board *board, Player *currentPlayer, bool isEnhanced);
 
     ~Game();
     void executeGameplay();
@@ -51,6 +51,7 @@ private:
     bool hasAdjoiningTile(int row, int col);
     bool checkNeighbours(int row, int col, bool diffShape, Tile *originalTile, bool isRow);
     void updatePoints(int row, int col);
+    void updatePointsNonFirst(int row, int col, Game::Orientation orientation);
     int countNeighbours(int row, int col);
     int countLine(int row, int col, Game::Direction direction);
 
@@ -69,6 +70,9 @@ private:
     std::vector<std::string> processCommand(std::string inputString);
 
     std::vector<Player *> players;
+
+    std::vector<std::pair<int, int>> tileLocations;
+
     Player *player1;
     Player *player2;
     Player *player3;
@@ -81,11 +85,11 @@ private:
     bool gameOver;
     int turnNum = 1;
     int tileNum = 0;
+    bool invalidMoveBackCompat = false;
+
+    bool isEnhanced = false;
 
     Game::Orientation orientation = undirected;
-
-    int firstTileRow = -1;
-    int firstTileCol = -1;
 };
 
 #endif // ASSIGN2_GAME_H

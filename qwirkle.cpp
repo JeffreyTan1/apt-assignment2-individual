@@ -25,11 +25,23 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+bool isEnhanced = false;
+
 void runMenu(int userChoice, bool *stop);
 void closeProgMsg();
 
-int main(void)
+int main(int argc, char **argv)
 {
+
+   if (argc > 1)
+   {
+      std::string strArgv(argv[1]);
+      if (strArgv == "-e")
+      {
+         isEnhanced = true;
+      }
+   }
+
    cout << "Welcome to Qwirkle!" << endl;
    cout << "-------------------" << endl;
 
@@ -45,10 +57,17 @@ int main(void)
       cout << "2. Load game" << endl;
       cout << "3. Credits (Show student information)" << endl;
       cout << "4. Quit" << endl;
-      cout << "5. High Scores" << endl;
+      //isolate enhanced behaviour
+      if (isEnhanced)
+      {
+         cout << "5. High Scores" << endl;
+      }
       cout << "> ";
       cin >> userChoice;
-      while ((cin.fail() || userChoice < CHOICE_1 || userChoice > CHOICE_5) && !stop)
+
+      //isolate enhanced behaviour
+      bool whileCondition = isEnhanced ? (cin.fail() || userChoice < CHOICE_1 || userChoice > CHOICE_5) && !stop : (cin.fail() || userChoice < CHOICE_1 || userChoice > CHOICE_4) && !stop;
+      while (whileCondition)
       {
          if (cin.eof())
          {
@@ -82,23 +101,31 @@ void runMenu(int userChoice, bool *stop)
            << endl;
 
       bool eofInput = false;
-      while (!(numPlayers <= 4 && numPlayers >= 2) && !eofInput)
+      if (isEnhanced)
       {
 
-         cout << endl
-              << "How many players? (2-4 Players)"
-              << endl;
+         while (!(numPlayers <= 4 && numPlayers >= 2) && !eofInput)
+         {
 
-         cin >> numPlayers;
-         if (cin.eof())
-         {
-            eofInput = true;
+            cout << endl
+                 << "How many players? (2-4 Players)"
+                 << endl;
+
+            cin >> numPlayers;
+            if (cin.eof())
+            {
+               eofInput = true;
+            }
+            else
+            {
+               cin.clear();
+               cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            }
          }
-         else
-         {
-            cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-         }
+      }
+      else
+      {
+         numPlayers = 2;
       }
 
       if (!eofInput)
@@ -109,15 +136,15 @@ void runMenu(int userChoice, bool *stop)
 
          if (numPlayers == 2)
          {
-            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer(), isEnhanced);
          }
          else if (numPlayers == 3)
          {
-            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer(), isEnhanced);
          }
          else
          {
-            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getPlayer4(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getPlayer4(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer(), isEnhanced);
          }
 
          if (!gameInit->getEofInput())
@@ -150,21 +177,23 @@ void runMenu(int userChoice, bool *stop)
       cin >> fileName;
       try
       {
+
+         //TODO: I HAVE NO IDEA IF LOADING WITH IS ENHANCED WORKS OR WHATEVER IM SCARED
          GameInit *gameInit = new GameInit(fileName);
 
          cout << "Qwirkle game successfully loaded" << endl;
-         Game *game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+         Game *game;
          if (gameInit->getPlayerCount() == 2)
          {
-            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer(), isEnhanced);
          }
          else if (gameInit->getPlayerCount() == 3)
          {
-            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer(), isEnhanced);
          }
          else
          {
-            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getPlayer4(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer());
+            game = new Game(gameInit->getPlayer1(), gameInit->getPlayer2(), gameInit->getPlayer3(), gameInit->getPlayer4(), gameInit->getBag(), gameInit->getBoard(), gameInit->getCurrPlayer(), isEnhanced);
          }
 
          delete gameInit;
@@ -212,20 +241,18 @@ void runMenu(int userChoice, bool *stop)
    else if (userChoice == CHOICE_5)
    {
       HighScoreLoader *highScoreLoader = new HighScoreLoader();
-      std::map<std::string, int> highScores = highScoreLoader->getHighScores();
+      std::map<int, std::string> highScores = highScoreLoader->getHighScores();
 
-      int position = 0;
       for (auto i = highScores.begin();
            i != highScores.end(); i++)
       {
-         position++;
          std::cout << endl
-                   << std::to_string(position) << ". "
                    << i->first
-                   << " achieved a score of:       "
+                   << "    BY    "
                    << i->second << endl
                    << endl;
       }
+
       delete highScoreLoader;
    }
 }

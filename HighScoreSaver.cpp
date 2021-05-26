@@ -2,22 +2,22 @@
 #include "HighScoreLoader.h"
 #include <iostream>
 
-HighScoreSaver::HighScoreSaver(std::map<std::string, int> currentGameScores)
+HighScoreSaver::HighScoreSaver(std::map<int, std::string> currentGameScores)
 {
     HighScoreLoader *highScoreLoader = new HighScoreLoader();
-    std::map<std::string, int> currentHighScores = highScoreLoader->getHighScores();
+    std::map<int, std::string> currentHighScores = highScoreLoader->getHighScores();
 
-    std::map<std::string, int>::iterator it;
+    std::map<int, std::string>::iterator it;
 
     for (it = currentGameScores.begin(); it != currentGameScores.end(); it++)
     {
-        currentHighScores.insert(std::pair<std::string, int>(it->first, it->second));
+        currentHighScores.insert(std::pair<int, std::string>(it->first, it->second));
     }
 
-    //TODO: take into account when the highscores are not initalised in the file yet
-    for (unsigned int i = 0; i < currentGameScores.size(); i++)
+    int iterations = currentHighScores.size() - 5;
+    for (int i = 0; i < iterations; i++)
     {
-        currentHighScores.erase(std::prev(currentHighScores.end()));
+        currentHighScores.erase(currentHighScores.begin());
     }
 
     outFile.open("HIGHSCORES.txt");

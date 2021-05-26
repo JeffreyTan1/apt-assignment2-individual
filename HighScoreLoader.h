@@ -8,10 +8,10 @@ class HighScoreLoader
 {
 public:
     HighScoreLoader();
-    std::map<std::string, int> getHighScores();
+    std::map<int, std::string> getHighScores();
 
 private:
-    std::map<std::string, int> highScores;
+    std::map<int, std::string> highScores;
     std::ifstream highScoreFile;
 };
 

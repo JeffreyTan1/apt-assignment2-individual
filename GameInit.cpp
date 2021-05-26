@@ -74,9 +74,6 @@ void GameInit::newRandomBag()
 
 void GameInit::newPlayer(int pNum)
 {
-    //Create player 1 data structures
-    //Should not have the same named people. The game loader won't be able to tell which person should have the current turn.
-    //The game will choose the player1 as the current player.
     bool cont = true;
     std::string name;
     while (cont)

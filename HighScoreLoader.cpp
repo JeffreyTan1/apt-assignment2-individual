@@ -24,11 +24,14 @@ HighScoreLoader::HighScoreLoader()
         {
             tokens.push_back(tempStr);
         }
-
-        highScores.insert(std::pair<std::string, int>(tokens[0], std::stoi(tokens[1])));
+        if (tokens.size() == 2)
+        {
+            highScores.insert(std::pair<int, std::string>(std::stoi(tokens[0]), tokens[1]));
+        }
     }
 }
-std::map<std::string, int> HighScoreLoader::getHighScores()
+
+std::map<int, std::string> HighScoreLoader::getHighScores()
 {
     return highScores;
 }

@@ -5,7 +5,10 @@
 #include "Tile.h"
 #include "GameInit.h"
 #include "GameSaver.h"
+#include "HighScoreSaver.h"
+#include "HighScoreLoader.h"
 
+#include <map>
 #include <algorithm>
 #include <iostream>
 #include <sstream>
@@ -30,6 +33,8 @@ Game::Game(Player *player1, Player *player2, LinkedList *bag, Board *board, Play
 {
     this->player1 = player1;
     this->player2 = player2;
+    this->player3 = nullptr;
+    this->player4 = nullptr;
     this->bag = bag;
     this->board = board;
     this->currentPlayer = currentPlayer;
@@ -45,6 +50,7 @@ Game::Game(Player *player1, Player *player2, Player *player3, LinkedList *bag, B
     this->player1 = player1;
     this->player2 = player2;
     this->player3 = player3;
+    this->player4 = nullptr;
     this->bag = bag;
     this->board = board;
     this->currentPlayer = currentPlayer;
@@ -125,22 +131,27 @@ void Game::executeGameplay()
         {
             switchPlayer();
 
-            if (bag->isEmpty() && (player1->getHand()->isEmpty() || player2->getHand()->isEmpty()))
+            if (playerCount == 2)
             {
-                gameOver = true;
-            }
+                cout << "running 2 player end game check" << endl;
 
-            if (player3 != nullptr)
-            {
-                if (bag->isEmpty() && player3->getHand()->isEmpty())
+                if (bag->isEmpty() && (player1->getHand()->isEmpty() || player2->getHand()->isEmpty()))
                 {
                     gameOver = true;
                 }
             }
 
-            if (player4 != nullptr)
+            if (playerCount == 3)
             {
-                if (bag->isEmpty() && player4->getHand()->isEmpty())
+                if (bag->isEmpty() && (player1->getHand()->isEmpty() || player2->getHand()->isEmpty() || player3->getHand()->isEmpty()))
+                {
+                    gameOver = true;
+                }
+            }
+
+            if (playerCount == 4)
+            {
+                if (bag->isEmpty() && (player1->getHand()->isEmpty() || player2->getHand()->isEmpty() || player3->getHand()->isEmpty() || player4->getHand()->isEmpty()))
                 {
                     gameOver = true;
                 }
@@ -175,6 +186,36 @@ void Game::executeGameplay()
         }
 
         cout << "Player " << winner->getName() << " won!" << endl;
+
+        cout << endl
+             << "All-time high scores:" << endl;
+
+        std::map<std::string, int> currentGameScores;
+
+        for (unsigned int i = 0; i < players.size(); i++)
+        {
+            currentGameScores.insert(std::pair<std::string, int>(players[i]->getName(), players[i]->getPoints()));
+        }
+
+        HighScoreSaver *highScoreSaver = new HighScoreSaver(currentGameScores);
+        delete highScoreSaver;
+
+        HighScoreLoader *highScoreLoader = new HighScoreLoader();
+        std::map<std::string, int> highScores = highScoreLoader->getHighScores();
+
+        int position = 0;
+        for (auto i = highScores.begin();
+             i != highScores.end(); i++)
+        {
+            position++;
+            std::cout << endl
+                      << std::to_string(position) << ". "
+                      << i->first
+                      << " achieved a score of:       "
+                      << i->second << endl
+                      << endl;
+        }
+        delete highScoreLoader;
     }
     cout << endl
          << "Goodbye" << endl;
@@ -342,6 +383,23 @@ bool Game::playTurn(vector<string> userInput)
         else if (userInput[INPUT_POS_1] == "QUIT")
         { //user is quitting game
             terminateGame = true;
+        }
+        else if (userInput[INPUT_POS_1] == "HELP")
+        {
+            cout << "Available commands: " << endl
+                 << endl;
+            cout << "PLACE (TILE) AT (LOCATION) - Places a tile in your hand on the board." << endl;
+            cout << "e.g. PLACE B4 AT A9" << endl
+                 << endl;
+            cout << "PASS - Finishes your turn." << endl
+                 << endl;
+            cout << "REPLACE (TILE) - Replaces a tile in your hand with one from the bag." << endl;
+            cout << "e.g. REPLACE B4" << endl
+                 << endl;
+            cout << "SAVE (FILENAME) - Saves the game to a file which can be loaded later." << endl
+                 << endl;
+            cout << "QUIT - Closes program" << endl
+                 << endl;
         }
         else
         {

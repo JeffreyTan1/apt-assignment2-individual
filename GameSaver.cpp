@@ -7,7 +7,7 @@ using std::endl;
 
 GameSaver::GameSaver(Player *player1, Player *player2, Board *board, LinkedList *bag, Player *currentPlayer, std::string outputFileName, int playerCount)
 {
-    outFile.open("Tests/Test-3-TestSaving/" + outputFileName + ".txt");
+    outFile.open("Tests/" + outputFileName + ".txt");
 
     outFile << playerCount << endl;
     outputPlayer(player1);
@@ -22,7 +22,7 @@ GameSaver::GameSaver(Player *player1, Player *player2, Board *board, LinkedList 
 
 GameSaver::GameSaver(Player *player1, Player *player2, Player *player3, Board *board, LinkedList *bag, Player *currentPlayer, std::string outputFileName, int playerCount)
 {
-    outFile.open("Tests/Test-3-TestSaving/" + outputFileName + ".txt");
+    outFile.open("Tests/" + outputFileName + ".txt");
 
     outFile << playerCount << endl;
     outputPlayer(player1);
@@ -37,7 +37,7 @@ GameSaver::GameSaver(Player *player1, Player *player2, Player *player3, Board *b
 }
 GameSaver::GameSaver(Player *player1, Player *player2, Player *player3, Player *player4, Board *board, LinkedList *bag, Player *currentPlayer, std::string outputFileName, int playerCount)
 {
-    outFile.open("Tests/Test-3-TestSaving/" + outputFileName + ".txt");
+    outFile.open("Tests/" + outputFileName + ".txt");
 
     outFile << playerCount << endl;
     outputPlayer(player1);

@@ -1,6 +1,7 @@
 #ifndef ASSIGN2_GAME_SAVER_H
 #define ASSIGN2_GAME_SAVER_H
 #include <fstream>
+#include <iostream>
 
 class Player;
 class Board;

@@ -4,18 +4,22 @@
 #include "Game.h"
 #include "Player.h"
 
+#include <map>
 #include <iostream>
 #include <exception>
 #include <limits>
 #include "Board.h"
 #include "GameInit.h"
 #include "Game.h"
+#include "HighScoreLoader.h"
+#include "HighScoreSaver.h"
 
 #define EXIT_SUCCESS 0
 #define CHOICE_1 1
 #define CHOICE_2 2
 #define CHOICE_3 3
 #define CHOICE_4 4
+#define CHOICE_5 5
 
 using std::cin;
 using std::cout;
@@ -41,9 +45,10 @@ int main(void)
       cout << "2. Load game" << endl;
       cout << "3. Credits (Show student information)" << endl;
       cout << "4. Quit" << endl;
+      cout << "5. High Scores" << endl;
       cout << "> ";
       cin >> userChoice;
-      while ((cin.fail() || userChoice < CHOICE_1 || userChoice > CHOICE_4) && !stop)
+      while ((cin.fail() || userChoice < CHOICE_1 || userChoice > CHOICE_5) && !stop)
       {
          if (cin.eof())
          {
@@ -79,6 +84,7 @@ void runMenu(int userChoice, bool *stop)
       bool eofInput = false;
       while (!(numPlayers <= 4 && numPlayers >= 2) && !eofInput)
       {
+
          cout << endl
               << "How many players? (2-4 Players)"
               << endl;
@@ -87,6 +93,11 @@ void runMenu(int userChoice, bool *stop)
          if (cin.eof())
          {
             eofInput = true;
+         }
+         else
+         {
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
          }
       }
 
@@ -197,6 +208,25 @@ void runMenu(int userChoice, bool *stop)
       //Quit
       closeProgMsg();
       *stop = true;
+   }
+   else if (userChoice == CHOICE_5)
+   {
+      HighScoreLoader *highScoreLoader = new HighScoreLoader();
+      std::map<std::string, int> highScores = highScoreLoader->getHighScores();
+
+      int position = 0;
+      for (auto i = highScores.begin();
+           i != highScores.end(); i++)
+      {
+         position++;
+         std::cout << endl
+                   << std::to_string(position) << ". "
+                   << i->first
+                   << " achieved a score of:       "
+                   << i->second << endl
+                   << endl;
+      }
+      delete highScoreLoader;
    }
 }
 

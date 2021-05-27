@@ -12,6 +12,12 @@
 #define GREEN_COLOR "\033[32m"
 #define BLUE_COLOR "\033[34m"
 #define PURPLE_COLOR "\033[35m"
+#define CIRCLE_UNICODE "\U000025EF"
+#define FOUR_STAR_UNICODE "\U00002726"
+#define DIAMOND_UNICODE "\U000025C6"
+#define SQUARE_UNICODE "\U000025FC"
+#define SIX_STAR_UNICODE "\U0001F7CC"
+#define CLOVER_UNICODE "\U00002618"
 
 // Define a Colour type
 typedef char Colour;

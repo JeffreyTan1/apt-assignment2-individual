@@ -20,7 +20,7 @@ class GameInit
 {
 public:
    GameInit(int numPlayers);
-   GameInit(std::string filename);
+   GameInit(std::string filename, bool isEnhanced);
    ~GameInit();
 
    Player *getPlayer1();

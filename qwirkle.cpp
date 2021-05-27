@@ -178,8 +178,7 @@ void runMenu(int userChoice, bool *stop)
       try
       {
 
-         //TODO: I HAVE NO IDEA IF LOADING WITH IS ENHANCED WORKS OR WHATEVER IM SCARED
-         GameInit *gameInit = new GameInit(fileName);
+         GameInit *gameInit = new GameInit(fileName, isEnhanced);
 
          cout << "Qwirkle game successfully loaded" << endl;
          Game *game;

@@ -18,7 +18,6 @@ public:
     vector<vector<Tile *>> getBoard();
     ~Board();
     void printBoard();
-
     void placeTile(Tile *tile, int row, int col);
     Tile *getTileAt(int row, int col);
     std::string getState();

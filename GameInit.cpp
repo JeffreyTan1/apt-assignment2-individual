@@ -134,16 +134,24 @@ void GameInit::newPlayer(int pNum)
     }
 }
 
-GameInit::GameInit(std::string filename)
+GameInit::GameInit(std::string filename, bool isEnhanced)
 {
     board = new Board();
     bag = new LinkedList();
 
     ifstream saveFile(filename + ".txt");
 
-    std::string input;
-    std::getline(saveFile, input);
-    playerCount = stoi(input);
+    if (isEnhanced)
+    {
+        std::string input;
+        std::getline(saveFile, input);
+        playerCount = stoi(input);
+    }
+    else
+    {
+        //In the case that the game is not enhanced, the playercoutn will always be 2
+        playerCount = 2;
+    }
 
     std::string line1;
     std::string line2;

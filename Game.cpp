@@ -387,7 +387,7 @@ bool Game::playTurn(vector<string> userInput)
 
             if (playerCount == 2)
             {
-                GameSaver *gs = new GameSaver(player1, player2, board, bag, currentPlayer, outputFileName, playerCount);
+                GameSaver *gs = new GameSaver(player1, player2, board, bag, currentPlayer, outputFileName, playerCount, isEnhanced);
                 delete gs;
             }
             else if (playerCount == 3)

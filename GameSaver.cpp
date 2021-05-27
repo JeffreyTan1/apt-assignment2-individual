@@ -5,11 +5,17 @@
 #include <iostream>
 using std::endl;
 
-GameSaver::GameSaver(Player *player1, Player *player2, Board *board, LinkedList *bag, Player *currentPlayer, std::string outputFileName, int playerCount)
+//Extra parameter isEnhanced to check if the game is saved to an enhaced or nonenhanced file
+GameSaver::GameSaver(Player *player1, Player *player2, Board *board, LinkedList *bag, Player *currentPlayer, std::string outputFileName, int playerCount, bool isEnhanced)
 {
     outFile.open("Tests/" + outputFileName + ".txt");
 
-    outFile << playerCount << endl;
+    //only output the playernumber if enhanced
+    if (isEnhanced)
+    {
+        outFile << playerCount << endl;
+    }
+
     outputPlayer(player1);
     outputPlayer(player2);
 

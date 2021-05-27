@@ -6,13 +6,10 @@ g++ -Wall -Werror -std=c++14 -g -O -c LinkedList.cpp
  
 g++ -Wall -Werror -std=c++14 -g -O -c Board.cpp
 g++ -Wall -Werror -std=c++14 -g -O -c Game.cpp
- 
 g++ -Wall -Werror -std=c++14 -g -O -c GameInit.cpp
 g++ -Wall -Werror -std=c++14 -g -O -c Player.cpp
- 
 g++ -Wall -Werror -std=c++14 -g -O -c qwirkle.cpp
 g++ -Wall -Werror -std=c++14 -g -O -c GameSaver.cpp
- 
 g++ -Wall -Werror -std=c++14 -g -O -c HighScoreLoader.cpp
 g++ -Wall -Werror -std=c++14 -g -O -c HighScoreSaver.cpp
 g++ -Wall -Werror -std=c++14 -g -O -o qwirkle Tile.o Node.o LinkedList.o Board.o Game.o GameInit.o Player.o qwirkle.o GameSaver.o HighScoreLoader.o HighScoreSaver.o

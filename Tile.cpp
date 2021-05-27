@@ -37,29 +37,29 @@ std::string Tile::toPrettyString()
 
     std::string shapeUnicode;
 
-    if (shape == 1)
+    if (shape == CIRCLE)
     {
-        shapeUnicode = "\U000025EF";
+        shapeUnicode = CIRCLE_UNICODE;
     }
-    else if (shape == 2)
+    else if (shape == STAR_4)
     {
-        shapeUnicode = "\U00002726";
+        shapeUnicode = FOUR_STAR_UNICODE;
     }
-    else if (shape == 3)
+    else if (shape == DIAMOND)
     {
-        shapeUnicode = "\U000025C6";
+        shapeUnicode = DIAMOND_UNICODE;
     }
-    else if (shape == 4)
+    else if (shape == SQUARE)
     {
-        shapeUnicode = "\U000025FC";
+        shapeUnicode = SQUARE_UNICODE;
     }
-    else if (shape == 5)
+    else if (shape == STAR_6)
     {
-        shapeUnicode = "\U0001F7CC";
+        shapeUnicode = SIX_STAR_UNICODE;
     }
     else
     {
-        shapeUnicode = "\U00002618";
+        shapeUnicode = CLOVER_UNICODE;
     }
 
     if (colour == 'R')

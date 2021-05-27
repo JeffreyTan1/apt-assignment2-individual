@@ -10,7 +10,7 @@ class LinkedList;
 class GameSaver
 {
 public:
-    GameSaver(Player *player1, Player *player2, Board *board, LinkedList *bag, Player *currentPlayer, std::string outputFileName, int playerCount);
+    GameSaver(Player *player1, Player *player2, Board *board, LinkedList *bag, Player *currentPlayer, std::string outputFileName, int playerCount, bool isEnhanced);
     GameSaver(Player *player1, Player *player2, Player *player3, Board *board, LinkedList *bag, Player *currentPlayer, std::string outputFileName, int playerCount);
     GameSaver(Player *player1, Player *player2, Player *player3, Player *player4, Board *board, LinkedList *bag, Player *currentPlayer, std::string outputFileName, int playerCount);
 

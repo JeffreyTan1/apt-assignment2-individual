@@ -3,8 +3,8 @@ make: Entering directory '/mnt/c/Users/tanma/Google Drive/Synced Desktop/Y2S1/AP
 g++ -Wall -Werror -std=c++14 -g -O -c Tile.cpp
 g++ -Wall -Werror -std=c++14 -g -O -c Node.cpp
 g++ -Wall -Werror -std=c++14 -g -O -c LinkedList.cpp
- 
 g++ -Wall -Werror -std=c++14 -g -O -c Board.cpp
+ 
 g++ -Wall -Werror -std=c++14 -g -O -c Game.cpp
 g++ -Wall -Werror -std=c++14 -g -O -c GameInit.cpp
 g++ -Wall -Werror -std=c++14 -g -O -c Player.cpp
